@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iris Flower Classification</title>
+    <style>
+        body {
+            background-image: linear-gradient(to left,black,blue,green);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+            margin: 0;
+        }
+        form {
+            background-image: linear-gradient(to right,white,rgb(107, 101, 108),blue,black);
+            font-size: large;
+            align-items: center;
+            padding: 30px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div style="background-image: linear-gradient(to right,white,rgb(107, 101, 108),blue,blue); margin-top: 200px;">
+        <h1 style="text-align: center;">Iris Flower Classification</h1>
+        <form action="/predict" method="post">
+            <label for="sepal_length">Sepal Length:</label>
+            <input type="text" id="sepal_length" name="sepal_length"><br><br>
+            
+            <label for="sepal_width">Sepal Width:</label>
+            <input type="text" id="sepal_width" name="sepal_width"><br><br>
+            
+            <label for="petal_length">Petal Length:</label>
+            <input type="text" id="petal_length" name="petal_length"><br><br>
+            
+            <label for="petal_width">Petal Width:</label>
+            <input type="text" id="petal_width" name="petal_width"><br><br>
+            
+            <button type="submit">Predict</button>
+        </form>
+        <div style="background-image: linear-gradient(to right,rgb(107, 101, 108),blue,black);">
+        {% if prediction_text %}
+            <h2 style="text-align: center; color: yellow;">Predicted Iris Species: {{ prediction_text }}</h2>
+        {% endif %}
+    </div>
+    </div>
+</body>
+</html>
